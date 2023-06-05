@@ -23,6 +23,7 @@
     "test:lint:fix": "eslint . --fix",
     "test:unit": "jest",
     "test:cypress": "npm-run-all -s test:cypress:*",
+    "test:cypress:open": "cypress run --component",
     "test:cypress:component": "cypress run --component",
     "test:cypress:e2e": "cypress run --e2e",
     "deploy": "ng deploy"

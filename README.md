@@ -25,11 +25,11 @@ use `npx ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
 ### Lint
 
-Run `npm run lint` to lint the project with [ESLint](https://eslint.org/docs/latest/).
+Run `npm run test:lint` to lint the project with [ESLint](https://eslint.org/docs/latest/).
 
 ### Development server
 
-Run `npm run serve` to run the application on a dev server. Navigate to `http://127.0.0.1:50000/`. The application will
+Run `npm run start` to run the application on a dev server. Navigate to `http://127.0.0.1:50000/`. The application will
 automatically reload if you change any of the source files.
 
 ### Unit tests
@@ -45,11 +45,11 @@ Run `npm run test:cypress:open` to open Cypress window and run tests interactive
 
 #### Integration tests
 
-Before running `npm run test:cypress`, change the environment variable `CYPRESS_SPEC_FOLDER` to `integration`.
+Before running `npm run test:cypress:e2e`, change the environment variable `CYPRESS_SPEC_FOLDER` to `integration`.
 
 #### E2E tests
 
-Before running `npm run test:cypress`, change the environment variable `CYPRESS_SPEC_FOLDER` to `e2e`.
+Before running `npm run test:cypress:e2e`, change the environment variable `CYPR~~E~~SS_SPEC_FOLDER` to `e2e`.
 
 ### Build
 
