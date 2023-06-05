@@ -4,6 +4,7 @@ import {timer} from 'rxjs';
 
 import {ChampionComponent} from './components/champion/champion.component';
 import {RoleComponent} from './components/role/role.component';
+import {SummonerComponent} from './components/summoner/summoner.component';
 
 @Component({
   standalone: true,
@@ -11,6 +12,7 @@ import {RoleComponent} from './components/role/role.component';
     CommonModule,
     ChampionComponent,
     RoleComponent,
+    SummonerComponent,
   ],
   selector: 'lr-root',
   templateUrl: './app.component.html',
@@ -19,50 +21,52 @@ import {RoleComponent} from './components/role/role.component';
 export class AppComponent {
   public canAdd = false;
   public canRemove = false;
-  public lanes: unknown[];
+  public summoners: string[] = [];
 
   public constructor() {
-    this.lanes = Array.from({length: this.laneCountFromLocalStorage()});
+    this.loadSummoners();
     this.validateButtons();
   }
 
   public add(): void {
-    this.lanes.push(undefined);
+    this.summoners.push('');
     this.validateButtons();
-    window.localStorage.setItem('lanes', `${this.lanes.length}`);
+    this.saveSummoners();
   }
 
   public remove(): void {
-    this.lanes.pop();
+    this.summoners.pop();
     this.validateButtons();
-    window.localStorage.setItem('lanes', `${this.lanes.length}`);
+    this.saveSummoners();
   }
 
   public randomize(): void {
-    const length = this.lanes.length;
     timer(0)
-        .subscribe(() => this.lanes = [])
+        .subscribe(() => this.summoners = [])
         .add();
     timer(0)
-        .subscribe(() => this.lanes = Array.from({length}));
+        .subscribe(() => this.loadSummoners());
+  }
+
+  public value(event: string, index: number): void {
+    this.summoners[index] = event;
+    this.saveSummoners();
+  }
+
+  public trackBy(index: number): number {
+    return index;
   }
 
   private validateButtons(): void {
-    this.canAdd = this.lanes.length < 5;
-    this.canRemove = this.lanes.length > 1;
+    this.canAdd = this.summoners.length < 5;
+    this.canRemove = this.summoners.length > 1;
   }
 
-  private laneCountFromLocalStorage(): number {
-    let value = Number.parseInt(window.localStorage.getItem('lanes') ?? '1', 10);
+  private saveSummoners(): void {
+    window.localStorage.setItem('summoners', JSON.stringify(this.summoners));
+  }
 
-    if (value > 5) {
-      value = 5;
-    }
-
-    if (value < 1) {
-      value = 1;
-    }
-
-    return value;
+  private loadSummoners(): void {
+    this.summoners = JSON.parse(window.localStorage.getItem('summoners') ?? '[]');
   }
 }

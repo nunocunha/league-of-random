@@ -11,10 +11,22 @@
 </div>
 
 <div class="assignments">
+  <div class="summoners">
+    <h1>Summoner</h1>
+    <ng-container *ngFor="let summoner of summoners; index as index; trackBy: trackBy">
+      <lr-summoner (valueChange)="value($event, index)" [name]="summoner"></lr-summoner>
+    </ng-container>
+  </div>
   <div class="roles">
-    <lr-role *ngFor="let x of lanes"></lr-role>
+    <h1>Role</h1>
+    <ng-container *ngFor="let summoner of summoners; trackBy: trackBy">
+      <lr-role></lr-role>
+    </ng-container>
   </div>
   <div class="champions">
-    <lr-champion *ngFor="let x of lanes"></lr-champion>
+    <h1>Champion</h1>
+    <ng-container *ngFor="let summoner of summoners; trackBy: trackBy">
+      <lr-champion></lr-champion>
+    </ng-container>
   </div>
 </div>
