@@ -1,0 +1,20 @@
+<div class="buttons">
+  <div [ngClass]="{disabled: !canAdd}" class="button">
+    <div (click)="add()" class="emitter">Add</div>
+  </div>
+  <div [ngClass]="{disabled: !canRemove}" class="button">
+    <div (click)="remove()" class="emitter">Remove</div>
+  </div>
+  <div class="button">
+    <div (click)="randomize()" class="emitter">Randomize</div>
+  </div>
+</div>
+
+<div class="assignments">
+  <div class="roles">
+    <lr-role *ngFor="let x of lanes"></lr-role>
+  </div>
+  <div class="champions">
+    <lr-champion *ngFor="let x of lanes"></lr-champion>
+  </div>
+</div>

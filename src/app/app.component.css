@@ -1,0 +1,60 @@
+:host {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    padding: 32px;
+    box-sizing: border-box;
+}
+
+:host > .buttons {
+    display: flex;
+    gap: 32px;
+}
+
+:host > .buttons > .button {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+}
+
+:host > .buttons > .button > .emitter {
+    padding: 16px;
+    cursor: pointer;
+    user-select: none;
+}
+
+:host > .buttons > .button:hover {
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+:host > .buttons > .button:active {
+    border: 1px solid rgba(255, 255, 255, 0.025);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+:host > .buttons > .button.disabled {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.2);
+    opacity: 50%;
+    cursor: not-allowed;
+}
+
+:host > .buttons > .button.disabled > .emitter {
+    pointer-events: none;
+}
+
+:host > .assignments {
+    display: flex;
+    gap: 32px;
+}
+
+:host > .assignments > .roles,
+:host > .assignments > .champions {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
