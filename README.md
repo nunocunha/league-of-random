@@ -6,7 +6,6 @@ A League of Legends champion and role randomizer.
 * [League of Random](#league-of-random)
   * [Developers](#developers)
     * [Code scaffolding](#code-scaffolding)
-    * [Generate/update API](#generateupdate-api)
     * [Lint](#lint)
     * [Development server](#development-server)
     * [Unit tests](#unit-tests)
@@ -23,12 +22,6 @@ A League of Legends champion and role randomizer.
 
 Run `npx ng generate component component-name` to generate a new component. You can also
 use `npx ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-### Generate/update API
-
-Start all necessary microservices. Then, run `npm run api` to generate all APIs.
-
-In case you only need to generate or update a single API, run `npm run api:<microservice-to-update>`.
 
 ### Lint
 
