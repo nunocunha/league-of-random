@@ -1,0 +1,14 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "./dist/out-tsc/cypress",
+    "target": "es2019",
+    "types": [
+      "cypress"
+    ],
+    "resolveJsonModule": true
+  },
+  "include": [
+    "cypress"
+  ]
+}

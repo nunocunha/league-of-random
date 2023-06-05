@@ -1,0 +1,28 @@
+{
+  "root": true,
+  "extends": [
+    "@nunocunha"
+  ],
+  "overrides": [
+    {
+      "files": [
+        "*.component.ts"
+      ],
+      "rules": {
+        "@angular-eslint/component-selector": [
+          "error",
+          {
+            "type": [
+              "element",
+              "attribute"
+            ],
+            "prefix": [
+              "lr"
+            ],
+            "style": "kebab-case"
+          }
+        ]
+      }
+    }
+  ]
+}

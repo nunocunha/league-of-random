@@ -1,0 +1,15 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "./dist/out-tsc/jest",
+    "types": [
+      "jest"
+    ]
+  },
+  "include": [
+    "jest",
+    "src/**/*.spec.ts",
+    "src/**/*.mock.ts",
+    "src/**/*.d.ts"
+  ]
+}
