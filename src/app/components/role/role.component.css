@@ -1,0 +1,11 @@
+:host {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+:host > .icon {
+    display: block;
+    aspect-ratio: 1 / 1;
+    width: 64px;
+}
