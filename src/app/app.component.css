@@ -51,19 +51,3 @@
     width: 100%;
     justify-content: center;
 }
-
-:host > .assignments > .summoners,
-:host > .assignments > .roles,
-:host > .assignments > .champions {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-}
-
-:host > .assignments > .roles {
-    width: 170px;
-}
-
-:host > .assignments > .champions {
-    width: 250px;
-}
