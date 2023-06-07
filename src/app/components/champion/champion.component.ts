@@ -22,7 +22,7 @@ export class ChampionComponent implements OnDestroy {
     this.champions.select(this.champion);
   }
 
-  public ngOnDestroy() {
+  public ngOnDestroy(): void {
     this.champions.release(this.champion);
   }
 }

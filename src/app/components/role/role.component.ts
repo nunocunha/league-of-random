@@ -18,7 +18,7 @@ export class RoleComponent implements OnDestroy {
     this.roles.select(this.role);
   }
 
-  public ngOnDestroy() {
+  public ngOnDestroy(): void {
     this.roles.release(this.role);
   }
 }
