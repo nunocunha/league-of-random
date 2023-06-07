@@ -42,7 +42,7 @@ export class AppComponent {
   public randomize(): void {
     this.summoners = [];
     this.app.tick();
-    this.loadSummoners();
+    this.summoners = this.loadSummoners();
   }
 
   public valueChange(summoner: string, index: number): void {
