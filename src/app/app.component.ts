@@ -1,6 +1,5 @@
 import {CommonModule} from '@angular/common';
-import {Component} from '@angular/core';
-import {timer} from 'rxjs';
+import {ApplicationRef, Component} from '@angular/core';
 
 import {ChampionComponent} from './components/champion/champion.component';
 import {RoleComponent} from './components/role/role.component';
@@ -23,7 +22,7 @@ export class AppComponent {
   public canRemove = false;
   public summoners: string[] = [];
 
-  public constructor() {
+  public constructor(private app: ApplicationRef) {
     this.loadSummoners();
     this.validateButtons();
   }
@@ -41,11 +40,9 @@ export class AppComponent {
   }
 
   public randomize(): void {
-    timer(0)
-        .subscribe(() => this.summoners = [])
-        .add();
-    timer(0)
-        .subscribe(() => this.loadSummoners());
+    this.summoners = [];
+    this.app.tick();
+    this.loadSummoners();
   }
 
   public value(event: string, index: number): void {
