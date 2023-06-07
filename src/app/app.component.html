@@ -1,32 +1,36 @@
 <div class="buttons">
-  <div [ngClass]="{disabled: !canAdd}" class="button">
-    <div (click)="add()" class="emitter">Add</div>
+  <div [ngClass]="{disabled: !canAdd}"
+       class="button">
+    <div (click)="add()"
+         class="emitter">Add
+    </div>
   </div>
-  <div [ngClass]="{disabled: !canRemove}" class="button">
-    <div (click)="remove()" class="emitter">Remove</div>
+  <div [ngClass]="{disabled: !canRemove}"
+       class="button">
+    <div (click)="remove()"
+         class="emitter">Remove
+    </div>
   </div>
   <div class="button">
-    <div (click)="randomize()" class="emitter">Randomize</div>
+    <div (click)="randomize()"
+         class="emitter">Randomize
+    </div>
   </div>
 </div>
 
 <div class="assignments">
   <div class="summoners">
     <h1>Summoner</h1>
-    <ng-container *ngFor="let summoner of summoners; index as index; trackBy: trackBy">
-      <lr-summoner (valueChange)="value($event, index)" [name]="summoner"></lr-summoner>
-    </ng-container>
+    <lr-summoner (valueChange)="value($event, index)"
+                 *ngFor="let summoner of summoners; index as index; trackBy: trackBy"
+                 [name]="summoner"></lr-summoner>
   </div>
   <div class="roles">
     <h1>Role</h1>
-    <ng-container *ngFor="let summoner of summoners; trackBy: trackBy">
-      <lr-role></lr-role>
-    </ng-container>
+    <lr-role *ngFor="let _ of summoners; trackBy: trackBy"></lr-role>
   </div>
   <div class="champions">
     <h1>Champion</h1>
-    <ng-container *ngFor="let summoner of summoners; trackBy: trackBy">
-      <lr-champion></lr-champion>
-    </ng-container>
+    <lr-champion *ngFor="let _ of summoners; trackBy: trackBy"></lr-champion>
   </div>
 </div>
