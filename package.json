@@ -41,8 +41,6 @@
     "@angular/platform-browser": "16.0.4",
     "@angular/platform-browser-dynamic": "16.0.4",
     "@angular/router": "16.0.4",
-    "jsum": "2.0.0-alpha.4",
-    "serialize-anything": "1.2.3",
     "rxjs": "7.8.1",
     "tslib": "2.5.3",
     "uuid": "9.0.0",
