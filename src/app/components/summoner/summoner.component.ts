@@ -21,4 +21,6 @@ export class SummonerComponent {
     const target = event.target as HTMLInputElement | null;
     this.valueChange.emit(target?.value);
   }
+
+  public readonly placeholder = 'Summoner name';
 }

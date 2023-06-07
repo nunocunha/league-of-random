@@ -17,6 +17,10 @@
     font: inherit;
 }
 
+:host > input:placeholder-shown {
+    font-style: italic;
+}
+
 :host > input:hover {
     background: rgba(255, 255, 255, 0.1);
 }
