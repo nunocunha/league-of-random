@@ -11,20 +11,20 @@ import {Champion} from './models/internal/champion';
   providedIn: 'root'
 })
 export class ChampionDataService {
-  private cache: Readonly<Readonly<Champion>[]> = [];
+  private _cache: Readonly<Readonly<Champion>[]> = [];
 
   public constructor(private http: HttpClient) {
   }
 
-  public get champions(): Readonly<Readonly<Champion>[]> {
-    return JSON.parse(JSON.stringify(this.cache));
+  public get cache(): Champion[] {
+    return structuredClone(this._cache);
   }
 
-  public get onLoad(): Observable<Readonly<Readonly<Champion>[]>> {
+  public getChampions(): Observable<Readonly<Readonly<Champion>[]>> {
     return this.http
                .get<ChampionListInterface>(`${DataDragon.BASE_URL}/data/en_US/champion.json`)
                .pipe(map(ChampionMapper.fromChampionListInterface), tap((response) => {
-                 this.cache = response;
+                 this._cache = response;
                }), take(1));
   }
 }

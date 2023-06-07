@@ -11,7 +11,7 @@ export class ChampionSelectService {
   private readonly selected = new Set<Champion['name']>;
 
   public constructor(private data: ChampionDataService) {
-    this.champions = data.champions;
+    this.champions = data.cache;
   }
 
   public random(): Champion {
