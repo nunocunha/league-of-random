@@ -45,8 +45,8 @@ export class AppComponent {
     this.loadSummoners();
   }
 
-  public value(event: string, index: number): void {
-    this.summoners[index] = event;
+  public valueChange(summoner: string, index: number): void {
+    this.summoners[index] = summoner;
     this.saveSummoners();
   }
 
