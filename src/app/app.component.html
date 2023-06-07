@@ -19,18 +19,13 @@
 </div>
 
 <div class="assignments">
-  <div class="summoners">
-    <h1>Summoner</h1>
-    <lr-summoner (valueChange)="value($event, index)"
-                 *ngFor="let summoner of summoners; index as index; trackBy: trackBy"
+  <h1>Summoner</h1>
+  <h1>Role</h1>
+  <h1>Champion</h1>
+  <ng-container *ngFor="let summoner of summoners; index as index; trackBy: trackBy">
+    <lr-summoner (valueChange)="valueChange($event, index)"
                  [name]="summoner"></lr-summoner>
-  </div>
-  <div class="roles">
-    <h1>Role</h1>
-    <lr-role *ngFor="let _ of summoners; trackBy: trackBy"></lr-role>
-  </div>
-  <div class="champions">
-    <h1>Champion</h1>
-    <lr-champion *ngFor="let _ of summoners; trackBy: trackBy"></lr-champion>
-  </div>
+    <lr-role></lr-role>
+    <lr-champion></lr-champion>
+  </ng-container>
 </div>

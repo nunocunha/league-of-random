@@ -47,8 +47,7 @@
 }
 
 :host > .assignments {
-    display: flex;
-    gap: 32px;
-    width: 100%;
-    justify-content: center;
+    display: grid;
+    grid-template: auto / repeat(3, auto);
+    gap: 16px;
 }
