@@ -20,23 +20,23 @@ import {SummonerComponent} from './components/summoner/summoner.component';
 export class AppComponent {
   public canAdd = false;
   public canRemove = false;
-  public summoners: string[] = [];
+  public summoners = [''];
 
   public constructor(private app: ApplicationRef) {
-    this.loadSummoners();
+    this.summoners = this.loadSummoners();
     this.validateButtons();
   }
 
   public add(): void {
     this.summoners.push('');
     this.validateButtons();
-    this.saveSummoners();
+    this.saveSummoners(this.summoners);
   }
 
   public remove(): void {
     this.summoners.pop();
     this.validateButtons();
-    this.saveSummoners();
+    this.saveSummoners(this.summoners);
   }
 
   public randomize(): void {
@@ -47,7 +47,7 @@ export class AppComponent {
 
   public valueChange(summoner: string, index: number): void {
     this.summoners[index] = summoner;
-    this.saveSummoners();
+    this.saveSummoners(this.summoners);
   }
 
   public trackBy(index: number): number {
@@ -59,11 +59,11 @@ export class AppComponent {
     this.canRemove = this.summoners.length > 1;
   }
 
-  private saveSummoners(): void {
-    window.localStorage.setItem('summoners', JSON.stringify(this.summoners));
+  private saveSummoners(summoners: AppComponent['summoners']): void {
+    window.localStorage.setItem('summoners', JSON.stringify(summoners));
   }
 
-  private loadSummoners(): void {
-    this.summoners = JSON.parse(window.localStorage.getItem('summoners') ?? '[]');
+  private loadSummoners(): AppComponent['summoners'] {
+    return JSON.parse(window.localStorage.getItem('summoners') ?? '[""]');
   }
 }
