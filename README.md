@@ -49,7 +49,7 @@ Before running `npm run test:cypress:e2e`, change the environment variable `CYPR
 
 #### E2E tests
 
-Before running `npm run test:cypress:e2e`, change the environment variable `CYPR~~E~~SS_SPEC_FOLDER` to `e2e`.
+Before running `npm run test:cypress:e2e`, change the environment variable `CYPRESS_SPEC_FOLDER` to `e2e`.
 
 ### Build
 
